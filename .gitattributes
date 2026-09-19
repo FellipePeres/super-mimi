@@ -1,0 +1,9 @@
+# O CI roda em Linux e o desenvolvimento em Windows: normalizar aqui evita
+# que o repositório fique com quebras de linha misturadas.
+* text=auto eol=lf
+
+*.png binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.m4a binary

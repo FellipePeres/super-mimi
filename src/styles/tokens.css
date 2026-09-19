@@ -1,0 +1,129 @@
+/* ============================================================
+   Super Mimi — tokens de design
+   Fonte única de verdade. Nenhuma cor solta no resto do código.
+   ============================================================ */
+
+:root {
+  /* ---- Rio: profundidade da água ---- */
+  --water-abyss: #0d4d5e;
+  --water-deep: #14657a;
+  --water-mid: #2ba3b8;
+  --water-shallow: #7fd8e0;
+  --water-foam: #e8fbfc;
+
+  /* ---- Vegetação ---- */
+  --lily-light: #6ed08c;
+  --lily: #4caf6d;
+  --lily-dark: #2e7d4f;
+  --lily-vein: #3d9460;
+  --reed: #4e8c5a;
+  --flower: #f4a6c8;
+  --flower-light: #ffd6e8;
+  --flower-core: #ffe9a8;
+
+  /* ---- Terra e obstáculos ---- */
+  --sand: #f2d9a8;
+  --sand-dark: #d9b97e;
+  --rock: #8494a0;
+  --rock-dark: #5d6b76;
+  --rock-light: #a8b6c0;
+  --log: #a1734a;
+  --log-dark: #7a5433;
+
+  /* ---- Personagens ---- */
+  --mimi-shell: #8cc63f;
+  --mimi-shell-dark: #6aa62c;
+  --mimi-belly: #f5e3b3;
+  --mimi-bow: #ff7eb3;
+  --mimi-bow-dark: #e85f97;
+  --pipe-shell: #5b8c4a;
+  --pipe-shell-dark: #446b37;
+  --pipe-belly: #e6d3a3;
+  --pipe-glasses: #2b3440;
+
+  /* ---- Ação e estado ---- */
+  --action: #ffb84d;
+  --action-dark: #f09c22;
+  --action-glow: rgba(255, 184, 77, 0.45);
+  --danger: #ff6b6b;
+  --danger-dark: #e04f4f;
+  --success: #4caf6d;
+  --star: #ffd24d;
+  --star-empty: rgba(255, 255, 255, 0.22);
+
+  /* ---- Superfícies da interface ---- */
+  --surface-0: #0b3a47;
+  --surface-1: #11495a;
+  --surface-2: #17596c;
+  --surface-raised: rgba(255, 255, 255, 0.08);
+  --surface-glass: rgba(255, 255, 255, 0.1);
+  --surface-glass-strong: rgba(255, 255, 255, 0.16);
+  --border-soft: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.28);
+
+  /* ---- Texto ---- */
+  --text-bright: #f4fdff;
+  --text: #dcf1f5;
+  --text-muted: #9dc2cc;
+  --text-faint: #6e97a3;
+  --text-on-light: #123a45;
+
+  /* ---- Tipografia ---- */
+  --font-display: 'Fredoka', 'Trebuchet MS', sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3.25rem;
+
+  /* ---- Raios ---- */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+
+  /* ---- Espaçamento ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* ---- Sombras em camada ---- */
+  --shadow-sm: 0 1px 2px rgba(4, 30, 38, 0.22), 0 2px 6px rgba(4, 30, 38, 0.16);
+  --shadow-md: 0 2px 6px rgba(4, 30, 38, 0.24), 0 8px 20px rgba(4, 30, 38, 0.22);
+  --shadow-lg: 0 4px 12px rgba(4, 30, 38, 0.28), 0 18px 44px rgba(4, 30, 38, 0.3);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  /* ---- Movimento: spring, nunca linear ---- */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-md: 240ms;
+  --dur-slow: 420ms;
+
+  /* ---- Camadas ---- */
+  --z-stage: 1;
+  --z-hud: 10;
+  --z-topbar: 20;
+  --z-drawer: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-md: 0ms;
+    --dur-slow: 0ms;
+  }
+}

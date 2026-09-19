@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Áudio original sem tratamento (o ambient sozinho tem 23 MB).
+# Os arquivos usados pelo jogo ficam em src/audio/files/.
+audio-originais
+
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.log
