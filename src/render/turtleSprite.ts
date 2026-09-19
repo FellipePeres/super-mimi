@@ -3,6 +3,7 @@ import { Assets, Container, Graphics, Rectangle, Sprite, Texture } from 'pixi.js
 import type { Direction } from '../engine/types'
 import { PALETTE } from './palette'
 import { softCircleTexture } from './textures'
+import { hasGameArt, spriteUrl } from './sprites'
 import { easeOutBack, linear, tween, type TweenHandle } from './tween'
 
 export type CharacterId = 'mimi' | 'pipe'
@@ -48,7 +49,7 @@ const FACING_ROTATION: Record<Direction, number> = {
  *
  * Duas fontes de arte, escolhidas em tempo de carga:
  *
- *  - **PNG** em `public/sprites/` (mimi-south/north/east + portrait). Como a
+ *  - **PNG** em `src/render/sprites/` (mimi-south/north/east + portrait). Como a
  *    arte é 3/4 vista de cima, cada direção precisa da sua imagem; `west` é o
  *    espelho de `east`. Se a imagem vier com proporção ~2:1, ela é tratada
  *    como tira de 2 frames e a remada alterna entre eles.
@@ -105,12 +106,17 @@ export class TurtleSprite {
    * jogo precisa funcionar inteiro antes de a arte existir.
    */
   async loadArt(): Promise<boolean> {
+    // Sem os três arquivos, nem tenta: uma requisição que falha faz o service
+    // worker devolver a página HTML no lugar da imagem, e o Pixi quebra ao
+    // transformar isso em textura.
+    if (!hasGameArt(this.character)) return false
+
     const dirs: Direction[] = ['south', 'north', 'east']
     const loaded: Partial<Record<Direction, Texture[]>> = {}
 
     for (const dir of dirs) {
-      // BASE_URL, e não `/`: em GitHub Pages o app vive num subdiretório
-      const url = `${import.meta.env.BASE_URL}sprites/${this.character}-${dir}.png`
+      const url = spriteUrl(`${this.character}-${dir}`)
+      if (!url) return false
       try {
         const texture = await Assets.load<Texture>(url)
         if (!texture) return false

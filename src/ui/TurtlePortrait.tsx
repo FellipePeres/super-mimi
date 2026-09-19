@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
-import { useEffect, useState } from 'react'
 import type { CharacterId } from '../render/turtleSprite'
+import { spriteUrl } from '../render/sprites'
 
 interface TurtlePortraitProps {
   character: CharacterId
@@ -45,7 +45,7 @@ const SKINS: Record<CharacterId, Skin> = {
  * Retrato do personagem para as telas de menu.
  *
  * Usa `mimi-portrait.png` / `pipe-portrait.png` quando existirem em
- * `public/sprites/`; enquanto não existirem, desenha a tartaruga em SVG aqui
+ * `src/render/sprites/`; enquanto não existirem, desenha a tartaruga em SVG aqui
  * mesmo. O app inteiro precisa ficar apresentável antes de a arte chegar.
  */
 export function TurtlePortrait({
@@ -54,26 +54,11 @@ export function TurtlePortrait({
   animated = true,
   className = '',
 }: TurtlePortraitProps) {
-  const [artUrl, setArtUrl] = useState<string | null>(null)
   const skin = SKINS[character]
 
-  useEffect(() => {
-    let cancelled = false
-    const url = `${import.meta.env.BASE_URL}sprites/${character}-portrait.png`
-    const image = new Image()
-
-    image.onload = () => {
-      if (!cancelled) setArtUrl(url)
-    }
-    image.onerror = () => {
-      if (!cancelled) setArtUrl(null)
-    }
-    image.src = url
-
-    return () => {
-      cancelled = true
-    }
-  }, [character])
+  // O retrato existe só se alguém tiver colocado o arquivo na pasta de arte;
+  // caso contrário, o SVG abaixo é a versão oficial do personagem.
+  const artUrl = spriteUrl(`${character}-portrait`)
 
   if (artUrl) {
     return (

@@ -5,7 +5,7 @@ imagem por IA, e onde colocá-las no projeto.
 
 **O jogo já funciona sem estas imagens.** Enquanto os arquivos não existirem,
 as tartarugas são desenhadas em vetor pelo próprio código. Quando você colocar
-os PNGs em `public/sprites/`, eles entram no lugar automaticamente — não é
+os PNGs em `src/render/sprites/`, eles entram no lugar automaticamente — não é
 preciso mexer em nenhuma linha.
 
 ---
@@ -25,7 +25,7 @@ Você **não** gera a direção oeste: o jogo espelha a imagem do leste.
 | 7 | `pipe-east.png` | Pipe | Igual ao #3 |
 | 8 | `pipe-portrait.png` | Pipe | Igual ao #4 |
 
-Destino: **`public/sprites/`** (a pasta já existe).
+Destino: **`src/render/sprites/`** (a pasta já existe).
 
 ---
 
@@ -174,7 +174,7 @@ de pose única. Nada quebra.
 - [ ] Óculos do Pipe visíveis nas três poses
 - [ ] Nomes de arquivo exatamente como na tabela da seção 1
 
-Depois é só copiar para `public/sprites/` e recarregar a página.
+Depois é só copiar para `src/render/sprites/` e recarregar a página.
 
 ---
 

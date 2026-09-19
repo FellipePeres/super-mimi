@@ -1,5 +1,7 @@
 # Super Mimi
 
+### 🐢 [Acesse o site](https://fellipeperes.github.io/super-mimi/)
+
 Jogo web que ensina lógica de programação. O jogador escreve comandos de
 verdade — `if`, `else`, `while`, `repeat`, funções — e a tartaruga **Mimi**
 (ou **Pipe**) nada pelo rio até as vitórias régias.
@@ -7,15 +9,6 @@ verdade — `if`, `else`, `while`, `repeat`, funções — e a tartaruga **Mimi*
 O rio é um plano cartesiano com eixos numerados na tela: `swim(2, 1)` anda
 duas casas para a direita e uma para cima, e dá para conferir isso contando
 na régua.
-
-## Rodando
-
-```bash
-npm install
-npm run dev      # http://localhost:5173
-npm test         # 354 testes
-npm run build    # build de produção com PWA
-```
 
 ## Os dois modos
 
@@ -92,10 +85,13 @@ apenas comandos liberados naquela fase.
 
 ## Arte
 
-As tartarugas são desenhadas em vetor pelo código e o jogo funciona assim.
-Para trocar por arte própria, veja **[ARTE.md](ARTE.md)** — ele traz os prompts
-prontos, as 8 imagens necessárias e onde colocá-las. Nenhuma linha de código
-muda.
+As tartarugas são desenhadas em vetor pelo código, e é assim que o jogo
+funciona. Para trocar por arte própria, basta colocar os PNGs em
+`src/render/sprites/` — eles são descobertos em tempo de build e substituem o
+vetor sozinhos, sem mexer em código. Enquanto um arquivo não existir, nenhuma
+requisição é feita por ele.
+
+As especificações e os prompts prontos estão em **[ARTE.md](ARTE.md)**.
 
 ## Som
 
