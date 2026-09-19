@@ -7,6 +7,7 @@ import { PALETTE } from './palette'
 import { ParticleLayer } from './particles'
 import { TileLayer } from './tileLayer'
 import { TurtleSprite, type CharacterId } from './turtleSprite'
+import { WaterLayer } from './waterLayer'
 import {
   arc, delay, easeInOutCubic, easeOutBack, easeOutCubic,
   prefersReducedMotion, tween, type TweenHandle,
@@ -30,7 +31,7 @@ const TURTLE_SCALE = 0.98
 export class GameStage {
   readonly app: Application
 
-  private water!: import('./waterLayer').WaterLayer
+  private water!: WaterLayer
   private grid!: CartesianGrid
   private tiles!: TileLayer
   private turtle!: TurtleSprite
@@ -79,8 +80,6 @@ export class GameStage {
   }
 
   private async build(parent: HTMLElement): Promise<void> {
-    const { WaterLayer } = await import('./waterLayer')
-
     const w = this.app.screen.width
     const h = this.app.screen.height
 
