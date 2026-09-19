@@ -12,3 +12,6 @@ audio-originais
 !.vscode/extensions.json
 .idea
 *.log
+
+# Cache incremental do TypeScript
+*.tsbuildinfo
